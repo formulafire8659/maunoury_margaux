@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Margaux Maunoury — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playball&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F8F4EA; --ink:#1B1B16; --ink-soft:#4A4A3F;
+  --green:#2F4B3C; --green-soft:#6E8F7C; --gold:#B98A2E; --line:#D9D2C0;
+  --card:#FFFFFF;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --cream:#16160F; --ink:#F2EEDF; --ink-soft:#C9C3AE;
+    --green:#8FBBA3; --green-soft:#5C7A67; --gold:#E0AF52; --line:#3A392E;
+    --card:#1E1E15;
+  }
+}
+:root[data-theme="dark"]{
+  --cream:#16160F; --ink:#F2EEDF; --ink-soft:#C9C3AE;
+  --green:#8FBBA3; --green-soft:#5C7A67; --gold:#E0AF52; --line:#3A392E;
+  --card:#1E1E15;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth;}
+body{
+  background:var(--cream); color:var(--ink);
+  font-family:'Work Sans',system-ui,sans-serif; font-size:16px; line-height:1.6;
+  min-height:100%;
+}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; color:var(--ink); letter-spacing:.01em;}
+.script{font-family:'Playball',cursive; font-weight:400;}
+p{max-width:62ch; color:var(--ink-soft);}
+a{color:var(--green);}
+
+.layout{display:flex; min-height:100vh;}
+nav.side{
+  width:64px; flex-shrink:0; border-right:1px solid var(--line);
+  display:flex; flex-direction:column; align-items:center; justify-content:space-between;
+  padding:32px 0; position:sticky; top:0; height:100vh;
+}
+nav.side a{
+  writing-mode:vertical-rl; text-orientation:mixed; font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem; text-decoration:none; color:var(--ink); letter-spacing:.03em;
+  padding:6px 0;
+}
+nav.side .tag{color:var(--ink-soft); font-size:.85rem;}
+
+main{flex:1; min-width:0;}
+section{
+  padding:6vh 8vw; border-bottom:1px solid var(--line);
+  min-height:100vh; display:flex; flex-direction:column; justify-content:center;
+}
+.eyebrow{font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--ink-soft); font-size:1.05rem; margin-bottom:.4em;}
+.num{font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--gold); font-size:2rem; align-self:flex-end;}
+
+/* HERO */
+#hero{background:var(--card); position:relative;}
+#hero h1{font-size:clamp(3.5rem,12vw,7.5rem); line-height:.9;}
+#hero .sub{margin-top:1.5em; max-width:34ch;}
+#hero .who{margin-top:3em;}
+#hero .who .name{font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-style:italic;}
+.ticket{
+  display:inline-block; margin-top:2em; border:1px dashed var(--gold); color:var(--gold);
+  padding:.5em 1.1em; font-size:.8rem; letter-spacing:.08em; border-radius:4px;
+}
+
+/* two-col */
+.grid2{display:grid; grid-template-columns:1fr 1.1fr; gap:6vw; align-items:center;}
+.photo{width:100%; aspect-ratio:4/5; border-radius:6px; overflow:hidden; background:var(--line);
+  display:flex; align-items:center; justify-content:center; color:var(--ink-soft); font-family:'Cormorant Garamond',serif;}
+
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.5rem; margin-top:2em;}
+.card{background:var(--card); border:1px solid var(--line); border-radius:8px; padding:1.4em 1.5em;}
+.card h4{font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-style:italic; margin-bottom:.5em; color:var(--green);}
+.card ul{padding-left:1.1em; color:var(--ink-soft); font-size:.95rem;}
+.card li{margin-bottom:.35em;}
+.card p{font-size:.95rem;}
+
+.proj-head{display:flex; justify-content:space-between; align-items:flex-start; gap:2em; margin-bottom:1.5em;}
+.proj-head h2{font-size:clamp(2.2rem,5vw,3.4rem);}
+.badge{border:1px solid var(--gold); color:var(--gold); font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.95rem; padding:.3em .9em; border-radius:999px; white-space:nowrap;}
+
+.skills-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2em; margin-top:2em;}
+.skill h4{color:var(--green); font-size:1.3rem;}
+.skill ul{padding-left:1.1em; margin-top:.5em; color:var(--ink-soft);}
+.skill li{margin-bottom:.3em;}
+.cert{border:1px solid var(--line); border-radius:8px; padding:1em 1.3em; margin-top:1.5em; max-width:48ch; font-size:.95rem;}
+
+.photogrid{display:grid; grid-template-columns:repeat(3,1fr); gap:.6em; margin-top:2em;}
+.photogrid div{aspect-ratio:1; background:var(--line); border-radius:4px;}
+
+.contact-box{border:1px solid var(--line); border-radius:8px; padding:2em; max-width:40ch; margin-top:1.5em;}
+.contact-box a{display:block; margin-top:.6em; text-decoration:none; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.15rem;}
+
+footer{padding:2em 8vw; text-align:center; color:var(--ink-soft); font-size:.85rem;}
+
+@media (max-width:820px){
+  nav.side{position:fixed; width:100%; height:auto; flex-direction:row; padding:14px 20px;
+    border-right:none; border-bottom:1px solid var(--line); background:var(--cream); z-index:5;
+    padding-top:calc(14px + env(safe-area-inset-top,0px));}
+  nav.side a{writing-mode:horizontal-tb; font-size:.95rem;}
+  nav.side .tag{display:none;}
+  main{padding-top:56px;}
+  section{padding:5em 6vw;}
+  .grid2{grid-template-columns:1fr;}
+  .photo{max-width:280px; margin:0 auto;}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="side">
+    <a href="#hero">Portfolio</a>
+    <a href="#about">Margaux Maunoury</a>
+    <span class="tag">Étudiante</span>
+  </nav>
+
+  <main>
+    <section id="hero">
+      <h1>Port<span class="script">folio</span></h1>
+      <p class="sub">Bienvenue dans mon univers ! Mon parcours de 2024 à aujourd'hui en BUT TC.</p>
+      <div class="who">
+        <div class="name">Margaux Maunoury</div>
+        <p>Étudiante en BUT TC — Parcours Business Développement et Management de la Relation Client</p>
+      </div>
+    </section>
+
+    <section id="sommaire">
+      <span class="eyebrow">Sommaire</span>
+      <h2 style="font-size:clamp(2rem,5vw,3rem)">Ce que vous trouverez ici</h2>
+      <div class="cards">
+        <a href="#about" style="text-decoration:none"><div class="card"><h4>Qui suis-je ?</h4></div></a>
+        <a href="#experiences" style="text-decoration:none"><div class="card"><h4>Expériences professionnelles</h4></div></a>
+        <a href="#but1" style="text-decoration:none"><div class="card"><h4>Projets BUT 1</h4></div></a>
+        <a href="#but2" style="text-decoration:none"><div class="card"><h4>Projets BUT 2</h4></div></a>
+        <a href="#competences" style="text-decoration:none"><div class="card"><h4>Compétences</h4></div></a>
+        <a href="#activites" style="text-decoration:none"><div class="card"><h4>Activités personnelles</h4></div></a>
+      </div>
+    </section>
+
+    <section id="about">
+      <span class="num">01</span>
+      <div class="grid2">
+        <div>
+          <h2 class="script" style="font-size:clamp(2.5rem,6vw,4rem)">Qui suis-je ?</h2>
+          <p style="margin-top:1.2em">Actuellement étudiante en deuxième année de BUT Techniques de Commercialisation à l'IUT Grand Ouest Normandie (site de Lisieux), je me suis progressivement orientée vers la communication, le marketing et l'événementiel.</p>
+          <p style="margin-top:1em">Mon parcours m'a permis de développer une double compétence : la relation client et les stratégies commerciales d'un côté, l'organisation d'événements et la communication de marque de l'autre, avec entre autres la co-organisation d'un bal solidaire et la conception de plusieurs stratégies de communication et de marketing digital.</p>
+          <p style="margin-top:1em">Mon stage chez Boubet Voyages (avril–mai 2026), agence spécialisée dans l'organisation de voyages de groupes, a confirmé mon attrait pour l'événementiel, à la croisée du commerce, du tourisme et de la communication.</p>
+          <p style="margin-top:1em">Je souhaite aujourd'hui poursuivre en Master Événementiel pour me spécialiser dans la conception et la gestion de projets événementiels.</p>
+        </div>
+        <div class="photo">Margaux</div>
+      </div>
+    </section>
+
+    <section id="experiences">
+      <span class="num">02</span>
+      <span class="eyebrow">Parcours</span>
+      <h2 style="font-size:clamp(2.2rem,5vw,3.4rem)">Mes <em>expériences professionnelles</em></h2>
+      <div class="cards">
+        <div class="card">
+          <h4>Boubet Voyages — Stage, 2 mois</h4>
+          <ul>
+            <li>Création de supports commerciaux et de la brochure pour voyages de groupes</li>
+            <li>Coordination avec les prestataires et gestion des dossiers voyages</li>
+            <li>Préparation des carnets de voyage, billets, rooming lists</li>
+            <li>Permanence téléphonique et gestion de la relation client</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Espace Culturel Leclerc — Stage, 1 mois</h4>
+          <ul>
+            <li>Conseil clients en rayon (livres, CD, jeux, manga)</li>
+            <li>Vente de produits culturels et argumentation commerciale</li>
+            <li>Gestion autonome d'un rayon spécifique</li>
+            <li>Accueil des auteurs pour dédicaces et gestion du stand</li>
+          </ul>
+        </div>
+        <div class="card"><h4>ALDI — 1 an</h4><p>Équipier polyvalent — Job étudiant</p></div>
+        <div class="card"><h4>Burger King — 5 mois</h4><p>Équipier polyvalent — Job étudiant</p></div>
+        <div class="card"><h4>Super U — 2 ans</h4><p>Équipier polyvalent — Job étudiant</p></div>
+      </div>
+    </section>
+
+    <section id="but1">
+      <span class="num">03</span>
+      <div class="proj-head">
+        <div>
+          <span class="eyebrow">Projets BUT 1 — Projet transverse</span>
+          <h2 class="script">Escales Infusées</h2>
+        </div>
+        <span class="badge">Paris 11e</span>
+      </div>
+      <p><strong style="color:var(--ink)">Bar à boissons naturelles, culturelles et sensorielles.</strong></p>
+      <p style="margin-top:1em">Co-création du concept, pensé aussi comme un lieu d'événements culturels : ateliers, expositions et animations autour du thé et du bien-être.</p>
+      <p style="margin-top:1em">Étude de marché complète, analyse de la concurrence locale, construction d'un CA prévisionnel avec seuil de rentabilité, élaboration d'un marketing mix complet (4P) et étude des aspects juridiques et financiers de la création d'entreprise.</p>
+      <p style="margin-top:1em">Offre : thés glacés infusés maison, matchas, kombuchas, pâtisseries artisanales et événements culturels réguliers.</p>
+    </section>
+
+    <section id="but1b">
+      <span class="num">04</span>
+      <span class="eyebrow">Projets BUT 1</span>
+      <h2 style="font-size:clamp(2.2rem,5vw,3.4rem)">Créativité & <em>communication de terrain</em></h2>
+      <div class="cards">
+        <div class="card">
+          <h4>MurArt — Projet tutoré</h4>
+          <p>Participation à un projet innovant alliant décoration intérieure, écologie et économie circulaire : conception d'une gamme de revêtements muraux personnalisables à partir de vêtements recyclés, répondant à la demande croissante de produits responsables dans l'aménagement intérieur.</p>
+        </div>
+        <div class="card">
+          <h4>Tacos Avenue — Campagne événementielle</h4>
+          <p>Conception d'un flyer et d'une vidéo de campagne publicitaire (30 secondes) pour une campagne promotionnelle locale destinée à attirer une clientèle étudiante lors d'une ouverture. Création graphique (Canva) et montage vidéo (CapCut) pour Instagram, TikTok et Snapchat.</p>
+        </div>
+        <div class="card">
+          <h4>Alphaprint — Données & CRM</h4>
+          <p>Analyse d'une base de données clients sous Excel (filtres, tris, tableaux croisés dynamiques) pour créer une campagne de publipostage personnalisée : segmentation par âge, fréquence d'achat et zone géographique, rédaction de messages via mail merge Word.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="but2">
+      <span class="num">05</span>
+      <div class="proj-head">
+        <div>
+          <span class="eyebrow">Projets BUT 2 — Projet transverse</span>
+          <h2>Bal <span class="script">Solidaire</span></h2>
+        </div>
+        <span class="badge">Blouses Roses de Lisieux</span>
+      </div>
+      <p>Co-organisation d'un bal solidaire au profit de l'association Les Blouses Roses de Lisieux, engagée auprès des personnes âgées hospitalisées.</p>
+      <p style="margin-top:1em">En parallèle, participation à des actions de collecte de fonds (vente de crêpes et gaufres à l'IUT) intégralement reversées à l'association et d'aide pour la communication digitale de l'association (affiche, etc.).</p>
+    </section>
+
+    <section id="but2b">
+      <span class="num">06</span>
+      <span class="eyebrow">Projets BUT 2</span>
+      <h2 style="font-size:clamp(2.2rem,5vw,3.4rem)">Stratégies de <em>communication</em></h2>
+      <div class="cards">
+        <div class="card">
+          <h4>La Coque Marine</h4>
+          <p style="font-style:italic; color:var(--ink-soft); margin-bottom:.6em">Identité + gestion sur plusieurs années</p>
+          <p>Contribution à la création d'une identité visuelle complète pour une entreprise fictive de coques de bateaux : logo, slogan « La coque qui défie l'océan », site internet, stratégie social media, catalogue produits, carte de visite, affiche, vidéo publicitaire et supports salon nautique.</p>
+        </div>
+        <div class="card">
+          <h4>Spotify</h4>
+          <p style="font-style:italic; color:var(--ink-soft); margin-bottom:.6em">« Ma Vie en Playlist »</p>
+          <p>Diagnostic de la communication digitale de Spotify avec benchmark des concurrents (Apple Music, YouTube Music, Deezer). Campagne digitale centrée sur la personnalisation émotionnelle : plan média multicanal, copy stratégie, moodboard visuel et hashtag challenge #MaVieEnPlaylist.</p>
+        </div>
+        <div class="card">
+          <h4>BlaBlaCar Event</h4>
+          <p style="font-style:italic; color:var(--ink-soft); margin-bottom:.6em">Stratégie 360°</p>
+          <p>Co-conception d'une campagne pour le lancement de BlaBlaCar Events, service mettant en relation des particuliers se rendant au même événement. Dossier en 4 missions, stratégie de communication 360° avec un budget de 500 000 €.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="but2c">
+      <span class="num">07</span>
+      <span class="eyebrow">Projets BUT 2</span>
+      <h2 style="font-size:clamp(2.2rem,5vw,3.4rem)">Marketing, stratégie <em>& fidélisation</em></h2>
+      <div class="cards">
+        <div class="card"><h4>Too Good To Go — Stratégie marketing</h4><p>Conception d'une stratégie marketing digitale autour d'un abonnement mensuel « TGTG Pass » à 9,99€/mois ciblant les 18–30 ans. SWOT du marché anti-gaspi, personas, stratégie social media sur 3 canaux, landing page WordPress et tunnel de conversion.</p></div>
+        <div class="card"><h4>Cosmétiques naturels — Reprise d'entreprise</h4><p>Étude complète d'une SAS spécialisée en cosmétiques naturels et savons saponifiés à froid (CA 2025 : 770 k€) : SWOT, PESTEL, marketing mix, benchmark (L'Oréal, Melvita…), projections financières en 3 scénarios et valorisation indicative.</p></div>
+        <div class="card"><h4>Dassault Aviation — Analyse marketing B2B</h4><p>Étude du marketing B2B de Dassault Aviation (Rafale, Falcon 10X) : SWOT, PESTEL, benchmark (Lockheed Martin, Gulfstream, Embraer), analyse des cibles institutionnelles et entreprises privées, marketing mix aéronautique de défense et d'affaires.</p></div>
+        <div class="card"><h4>Escales Infusées — Programme de fidélité</h4><p>Création d'un programme de fidélité pour le bar à thé : concept « Tour du Monde Sensoriel » à 6 paliers, passeport digital avec QR code, récompenses progressives, coûts évalués (~3 000 €/an) et stratégie de communication multicanale.</p></div>
+      </div>
+    </section>
+
+    <section id="competences">
+      <span class="num">08</span>
+      <h2 class="script" style="font-size:clamp(2.5rem,6vw,4rem)">Mes Compétences</h2>
+      <div class="skills-grid">
+        <div class="skill">
+          <h4>01 — Organisation d'événements</h4>
+          <ul><li>Planification et rétro-planning</li><li>Coordination d'équipes et de partenaires extérieurs</li><li>Organisation d'événements solidaires</li><li>Administration commerciale (dossiers, devis)</li><li>Logiciels métier tourisme (Boubet Voyages)</li></ul>
+        </div>
+        <div class="skill">
+          <h4>02 — Communiquer l'offre</h4>
+          <ul><li>Élaboration d'un plan de communication</li><li>Rédaction de messages adaptés à la cible</li><li>Outils PAO (Canva, CapCut)</li><li>Identité visuelle de marque</li><li>Création de contenus social media</li></ul>
+        </div>
+        <div class="skill">
+          <h4>03 — Stratégie marketing</h4>
+          <ul><li>Analyses SWOT, PESTEL, Porter</li><li>Marketing mix (4P), segmentation, ciblage</li><li>Benchmark concurrentiel</li><li>Stratégies de fidélisation client</li><li>Marketing B2B et digital</li></ul>
+        </div>
+        <div class="skill">
+          <h4>04 — Créativité & design</h4>
+          <ul><li>Supports visuels (flyers, affiches, kakémono)</li><li>Vidéos publicitaires courtes</li><li>Moodboard et copy stratégie</li><li>Dessin artistique autodidacte</li></ul>
+        </div>
+      </div>
+      <div class="cert"><strong>Mes certifications :</strong> Google Digital Marketing, Canva, HubSpot Academy et d'autres…</div>
+    </section>
+
+    <section id="activites">
+      <span class="num">09</span>
+      <div class="grid2">
+        <div>
+          <h2 style="font-size:clamp(2.2rem,5vw,3.4rem)">Activités <em>personnelles</em></h2>
+          <p style="margin-top:1.2em">Pratique du dessin en autodidacte depuis plusieurs années, en spécialité arts plastiques en première au lycée, développant créativité, sens du détail et précision — un atout direct pour la création de flyers et de visuels.</p>
+          <p style="margin-top:.8em">🏆 2e place, Concours Librairie Le Passage, Alençon (2022)<br>🏆 2e place, Concours lycée Alain d'Alençon (2022)</p>
+          <p style="margin-top:1em">Lectrice passionnée de manga depuis l'enfance, intéressée par l'illustration et le storytelling graphique. Projet de création d'un club de lecture manga à Alençon, en cohérence avec un goût pour l'organisation d'événements et la création de lien social autour de la culture.</p>
+          <p style="margin-top:1em">Fort intérêt pour l'art de la Renaissance et le patrimoine culturel européen. Projets de voyages vers des destinations à fort héritage historique et artistique : Florence, Arles, Nancy, en cohérence avec une curiosité pour les musées et l'histoire de l'art.</p>
+        </div>
+        <div class="photogrid">
+          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="min-height:70vh">
+      <span class="num">10</span>
+      <h2 class="script" style="font-size:clamp(3rem,8vw,5rem)">Contact</h2>
+      <p style="margin-top:.5em">Mes coordonnées</p>
+      <div class="contact-box">
+        <a href="mailto:maunourymargaux@gmail.com">Email : maunourymargaux@gmail.com</a>
+        <a href="https://www.linkedin.com/in/margaux-maunoury" target="_blank" rel="noopener">LinkedIn : Margaux Maunoury</a>
+      </div>
+    </section>
+
+    <footer>Portfolio — Margaux Maunoury, Étudiante en BUT TC</footer>
+  </main>
+</div>
+</body>
+</html>
